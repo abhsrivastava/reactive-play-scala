@@ -1,0 +1,11 @@
+@(message: String)(implicit request: RequestHeader)
+
+@main(message) {
+    <div id="tweets"></div>
+    <script src="@routes.Assets.versioned("javascripts/tweets.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+        console.log("came inside here");
+        connect(1, "@routes.Tweets.tweets().webSocketURL()");
+        console.log("called connect method");
+    </script>
+}
